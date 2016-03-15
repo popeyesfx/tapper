@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var taps = 0;
     var maxTaps = 0;
@@ -23,10 +23,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var runbutton: UIButton!
     
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        howmanttaps.delegate = self
+    }
+    
+    
+    
 
     @IBAction func pressToPlay(sender: UIBarButtonItem) {
-        
-        
         if howmanttaps.text != nil && howmanttaps.text != ""{
             
             runbutton.hidden = true;
@@ -37,7 +43,7 @@ class ViewController: UIViewController {
             nooftapslbl.hidden = false;
 
             
-            maxTaps = Int (Int(howmanttaps.text)!)
+        //    maxTaps = Int (Int(howmanttaps.text!)!)
         }
     }
 
@@ -65,6 +71,18 @@ class ViewController: UIViewController {
         maxTaps = 0;
         coinButton.hidden = true;
         nooftapslbl.hidden = true;
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        maxTaps = Int (Int(howmanttaps.text!)!)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder();
+        return true;
     }
 
 }
