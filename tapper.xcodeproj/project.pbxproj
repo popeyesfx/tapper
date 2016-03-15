@@ -156,6 +156,8 @@
 		951743BA1C9085E400A4E190 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0720;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Jack Hider";
 				TargetAttributes = {
@@ -409,6 +411,7 @@
 				951743E31C9085E400A4E190 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		951743E41C9085E400A4E190 /* Build configuration list for PBXNativeTarget "tapperTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +420,7 @@
 				951743E61C9085E400A4E190 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

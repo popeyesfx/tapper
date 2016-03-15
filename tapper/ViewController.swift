@@ -10,16 +10,62 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    var taps = 0;
+    var maxTaps = 0;
+    
+    @IBOutlet weak var tapperimg: UIImageView!
+    
+    @IBOutlet weak var coinButton: UIButton!
+
+    @IBOutlet weak var nooftapslbl: UILabel!
+    
+    @IBOutlet weak var howmanttaps: UITextField!
+    
+    @IBOutlet weak var runbutton: UIButton!
+    
+
+    @IBAction func pressToPlay(sender: UIBarButtonItem) {
+        
+        
+        if howmanttaps.text != nil && howmanttaps.text != ""{
+            
+            runbutton.hidden = true;
+            howmanttaps.hidden = true;
+            tapperimg.hidden = true;
+            
+            coinButton.hidden = false;
+            nooftapslbl.hidden = false;
+
+            
+            maxTaps = Int (Int(howmanttaps.text)!)
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
+
+    @IBAction func onCoinPress(sender: UIButton) {
+        taps++;
+        
+        if taps >= maxTaps{
+            resetGame();
+        }else{
+            nooftapslbl.text = "\(taps) Taps";
+        }
+    
+    
+    }
+    
+    
+    func resetGame(){
+        runbutton.hidden = false;
+        howmanttaps.hidden = false;
+        tapperimg.hidden = false;
+        
+        howmanttaps.text = "";
+        maxTaps = 0;
+        coinButton.hidden = true;
+        nooftapslbl.hidden = true;
+    }
 
 }
 
