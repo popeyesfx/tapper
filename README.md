@@ -1,2 +1,3 @@
 # tapper
-Part of iOS 9 course
+Part of iOS 9 course, lecture 30
+
