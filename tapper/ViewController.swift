@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    var taps = 0;
-    var maxTaps = 0;
     
     @IBOutlet weak var tapperimg: UIImageView!
     
@@ -26,6 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         howmanttaps.delegate = self
     }
     
@@ -35,54 +34,65 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func pressToPlay(sender: UIBarButtonItem) {
         if howmanttaps.text != nil && howmanttaps.text != ""{
             
-            runbutton.hidden = true;
-            howmanttaps.hidden = true;
-            tapperimg.hidden = true;
+            runbutton.hidden = true
+            howmanttaps.hidden = true
+            tapperimg.hidden = true
             
-            coinButton.hidden = false;
-            nooftapslbl.hidden = false;
+            coinButton.hidden = false
+            nooftapslbl.hidden = false
 
-            
-        //    maxTaps = Int (Int(howmanttaps.text!)!)
         }
     }
 
 
 
     @IBAction func onCoinPress(sender: UIButton) {
-        taps++;
         
-        if taps >= maxTaps{
-            resetGame();
-        }else{
-            nooftapslbl.text = "\(taps) Taps";
+        gameData.instance.taps++
+        
+        if gameData.instance.taps >= gameData.instance.maxTaps{
+            
+            resetGame()
+            
+        }else {
+            
+            nooftapslbl.text = "\(gameData.instance.taps) Taps"
+            
         }
-    
-    
     }
     
     
-    func resetGame(){
-        runbutton.hidden = false;
-        howmanttaps.hidden = false;
-        tapperimg.hidden = false;
+    func resetGame() {
         
-        howmanttaps.text = "";
-        maxTaps = 0;
-        coinButton.hidden = true;
-        nooftapslbl.hidden = true;
+        runbutton.hidden = false
+        howmanttaps.hidden = false
+        tapperimg.hidden = false
+        
+        howmanttaps.text = ""
+        gameData.instance.maxTaps = 0
+        coinButton.hidden = true
+        nooftapslbl.hidden = true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
     }
+    
     func textFieldDidEndEditing(textField: UITextField) {
-        maxTaps = Int (Int(howmanttaps.text!)!)
+        
+        if let taps = Int(howmanttaps.text!) {
+            
+            gameData.instance.maxTaps = taps
+            
+        }
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder();
-        return true;
+        
+        textField.resignFirstResponder()
+        return true
+        
     }
 
 }

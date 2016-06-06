@@ -13,6 +13,7 @@
 		951743CF1C9085E400A4E190 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951743CE1C9085E400A4E190 /* Images.xcassets */; };
 		951743D21C9085E400A4E190 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951743D01C9085E400A4E190 /* LaunchScreen.xib */; };
 		951743DE1C9085E400A4E190 /* tapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951743DD1C9085E400A4E190 /* tapperTests.swift */; };
+		954092011D05745C006413E3 /* gameData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954092001D05745C006413E3 /* gameData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		951743D71C9085E400A4E190 /* tapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		951743DC1C9085E400A4E190 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		951743DD1C9085E400A4E190 /* tapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tapperTests.swift; sourceTree = "<group>"; };
+		954092001D05745C006413E3 /* gameData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +79,10 @@
 		951743C41C9085E400A4E190 /* tapper */ = {
 			isa = PBXGroup;
 			children = (
-				951743C71C9085E400A4E190 /* AppDelegate.swift */,
-				951743C91C9085E400A4E190 /* ViewController.swift */,
-				951743CB1C9085E400A4E190 /* Main.storyboard */,
+				954091FF1D057421006413E3 /* Model */,
+				954091FE1D05741B006413E3 /* View */,
+				954091FD1D057413006413E3 /* Controller */,
 				951743CE1C9085E400A4E190 /* Images.xcassets */,
-				951743D01C9085E400A4E190 /* LaunchScreen.xib */,
 				951743C51C9085E400A4E190 /* Supporting Files */,
 			);
 			path = tapper;
@@ -110,6 +111,32 @@
 				951743DC1C9085E400A4E190 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		954091FD1D057413006413E3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				951743C71C9085E400A4E190 /* AppDelegate.swift */,
+				951743C91C9085E400A4E190 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		954091FE1D05741B006413E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				951743CB1C9085E400A4E190 /* Main.storyboard */,
+				951743D01C9085E400A4E190 /* LaunchScreen.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		954091FF1D057421006413E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				954092001D05745C006413E3 /* gameData.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +185,7 @@
 			attributes = {
 				LastSwiftMigration = 0720;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jack Hider";
 				TargetAttributes = {
 					951743C11C9085E400A4E190 = {
@@ -214,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				954092011D05745C006413E3 /* gameData.swift in Sources */,
 				951743CA1C9085E400A4E190 /* ViewController.swift in Sources */,
 				951743C81C9085E400A4E190 /* AppDelegate.swift in Sources */,
 			);
@@ -278,6 +306,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -344,6 +373,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.Redih.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -354,6 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = tapper/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.Redih.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -372,6 +403,7 @@
 				);
 				INFOPLIST_FILE = tapperTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.Redih.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tapper.app/tapper";
 			};
@@ -387,6 +419,7 @@
 				);
 				INFOPLIST_FILE = tapperTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "uk.co.Redih.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tapper.app/tapper";
 			};
